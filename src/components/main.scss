@@ -1,0 +1,19 @@
+@media (max-width: 993px) {
+	.w-75 {
+		width: 100% !important
+	} 
+	.only-on-large {
+		display: none
+	}
+	.only-on-medium-and-down {
+		display: block !important
+	}
+	.index-item:not(:last-child){
+		margin-bottom: 30px
+	}
+	
+}
+
+.only-on-medium-and-down {
+	display: none
+}

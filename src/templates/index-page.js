@@ -71,12 +71,12 @@ export const IndexPageTemplate = ({
       <span style={{width: '200px', height: '3px', display: 'block', backgroundColor: '#004660', margin: '0 auto'}}></span>
     </div>
   
-    <MDBRow className="no-gutters">
-      <MDBCol>
+    <MDBRow className="no-gutters px-3 index-item">
+      <MDBCol lg="6">
         <Img fluid={wayakHotel.childImageSharp.fluid} />
       </MDBCol>
-      <MDBCol middle className='align-items-center'>
-        <div className='w-75 ml-md-5 text-center'>
+      <MDBCol lg="6" middle className='align-items-center'>
+        <div className='w-75 ml-lg-5 text-center'>
           <h2 className='text-center'>HOTEL WAYAK BACALAR</h2>
           <p className='text-justify'>
             Hotel Wayak Bacalar-Todo Incluido, al estar rodeado de naturaleza crea un entorno de exclusividad lejos de todo lo cotidiano. Podrás disfrutar de la increíble laguna de Bacalar a unos cuantos pasos de tu habitación. 
@@ -86,9 +86,9 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters">
-      <MDBCol middle className='align-items-center'>
-        <div className='w-75 float-right mr-md-5 text-center'>
+    <MDBRow className="no-gutters px-3 index-item">
+      <MDBCol lg="6" middle className='align-items-center only-on-large'>
+        <div className='w-75 float-right mr-lg-5 text-center'>
           <h2 className='text-center'>HOTEL BÉKE MAHAHUAL</h2> 
           <p className='text-justify'>
             El ambiente y ubicación de Hotel Béke hará que experimentes una sensación de paz y relajación total. Por la mañana disfrutarás de una increíble vista del amanecer detrás del mar caribe y por la tarde el atardecer de lado del manglar. Todo esto, 
@@ -97,16 +97,26 @@ export const IndexPageTemplate = ({
           <MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
         </div>
       </MDBCol>
-      <MDBCol>
+      <MDBCol lg="6">
         <Img fluid={bekeHotel.childImageSharp.fluid} />
       </MDBCol>
+      <MDBCol lg="6" middle className='align-items-center only-on-medium-and-down'>
+        <div className='w-75 float-right mr-lg-5 text-center'>
+          <h2 className='text-center'>HOTEL BÉKE MAHAHUAL</h2> 
+          <p className='text-justify'>
+            El ambiente y ubicación de Hotel Béke hará que experimentes una sensación de paz y relajación total. Por la mañana disfrutarás de una increíble vista del amanecer detrás del mar caribe y por la tarde el atardecer de lado del manglar. Todo esto, 
+            complementado con habitaciones cómodamente equipadas para hacer de tu experiencia con nosotros algo inolvidable.
+          </p>
+          <MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
+        </div>
+      </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters">
-      <MDBCol>
+    <MDBRow className="no-gutters px-3 index-item">
+      <MDBCol lg="6">
         <Img fluid={casaMaya.childImageSharp.fluid} />
       </MDBCol>
-      <MDBCol middle className='align-items-center'>
-        <div className='w-75 ml-md-5 text-center'>
+      <MDBCol lg="6" middle className='align-items-center'>
+        <div className='w-75 ml-lg-5 text-center'>
           <h2 className='text-center'>HOTEL CASA MAYA HOLBOX</h2>
           <p className='text-justify'>
             Hotel rústico a la orilla del mar con una impresionante playa que te hará sentir en un entorno 100% caribeño. En la mañana podrás relajarte, disfrutar un rico cóctel y nadar en el mar cristalino.
@@ -116,25 +126,25 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters">
-      <MDBCol middle className='align-items-center'>
-        <div className='w-75 float-right mr-md-5 text-center'>
-          <p style={{fontSize: '30px'}} className='float-right text-center'>
+    <MDBRow className="no-gutters px-3 index-item">
+      <MDBCol lg="6" middle className='align-items-center'>
+        <div className='w-75 float-right mr-lg-5 text-center'>
+          <p style={{fontSize: '30px'}} className='float-lg-right text-center'>
              Regístrate y te enviaremos las mejores ofertas para ti
           </p>
           <input placeholder='E-mail' type="text" id="example1" className="form-control form-control-lg text-center" />
         </div>  
       </MDBCol>
-      <MDBCol>
+      <MDBCol lg="6">
         <Img fluid={bacalar.childImageSharp.fluid} />
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters">
-      <MDBCol>
+    <MDBRow className="no-gutters px-3 index-item">
+      <MDBCol lg="6">
         <iframe src="https://www.google.com/maps/d/embed?mid=1S1U0PHEcD-T41WIKnLXQBS-0j5n_c5-t" width="100%" height="384.54"></iframe>
       </MDBCol>
-      <MDBCol middle className='align-items-center'>
-        <div className='w-75 ml-md-5 text-center'>
+      <MDBCol lg="6" middle className='align-items-center'>
+        <div className='w-75 ml-lg-5 text-center'>
           <h2 className='text-center'>LOCACIONES</h2>
           <p className='text-justify'>
             Disfruta los destinos más increíbles de la península de Yucatán y el estado de Quintana Roo
