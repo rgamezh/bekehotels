@@ -38,7 +38,7 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-      <MDBNavbar style={{backgroundColor: 'rgba(0,70,96,0.8)'}} dark expand="md">
+      <MDBNavbar fixed="top" style={{backgroundColor: 'rgba(0,70,96,0.8)'}} dark expand="md">
         <MDBContainer>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -49,13 +49,12 @@ const Navbar = class extends React.Component {
               <MDBNavItem>
                 <MDBDropdown>
                   <MDBDropdownToggle nav caret>
-                    <span className="mr-2">Dropdown</span>
+                    <span className="mr-2">Destinos</span>
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
-                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                    <MDBDropdownItem href="#!">Wayak Bakalar - Todo Incluido</MDBDropdownItem>
+                    <MDBDropdownItem href="#!">Casa Maya Holbox</MDBDropdownItem>
+                    <MDBDropdownItem href="#!">Beke Mahahual</MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
               </MDBNavItem>
