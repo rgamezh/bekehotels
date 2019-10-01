@@ -14,26 +14,26 @@ collections:
       - {label: Template Key, name: templateKey, widget: hidden, default: hotel-page}
       - {label: Title, name: title, widget: string}
       - {label: Image, name: image, widget: image}
-      - {label: Tagline, name: tagline, widget: string}
-      - {label: Description Title, name: description_title, widget: string}
-      - {label: Description, name: description, widget: string}
+      - {label: Tagline, name: tagline, widget: text}
+      - {label: Description Title, name: description_title, widget: text}
+      - {label: Description, name: description, widget: text}
       - {label: Optional Content, name: content, widget: markdown, required: true}
   - name: "rooms"
     label: "Rooms"
     folder: "src/pages/rooms"
-    create: true 
+    create: true hotel
     fields: 
       - {label: Template Key, name: templateKey, widget: hidden, default: room-page}
       - {label: Hotel, name: hotel, widget: select, options: [beke, wayak, casaMaya] }
-      - {label: Title, name: title, widget: string}
+      - {label: Title,00 name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
       - {label: Description, name: description, widget: object, fields: [
           {label: First Image, name: first_image, widget: image},
-          {label: Tagline, name: tagline, widget: string},
-          {label: Description, name: description, widget: string},
+          {label: Tagline, name: tagline, widget: text},
+          {label: Description, name: description, widget: text},
           {label: second Image, name: second_image, widget: image},
-          {label: Second tagline, name: second_tagline, widget: string},
-          {label: Second Description, name: second_description, widget: string}
+          {label: Second tagline, name: second_tagline, widget: text},
+          {label: Second Description, name: second_description, widget: text}
         ]}
       - {label: Amenities, name: amenities, widget: markdown}
       - {label: Footer Image, name: footer_image, widget: image}
