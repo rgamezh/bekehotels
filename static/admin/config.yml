@@ -21,11 +21,11 @@ collections:
   - name: "rooms"
     label: "Rooms"
     folder: "src/pages/rooms"
-    create: true hotel
+    create: true 
     fields: 
       - {label: Template Key, name: templateKey, widget: hidden, default: room-page}
       - {label: Hotel, name: hotel, widget: select, options: [beke, wayak, casaMaya] }
-      - {label: Title,00 name: title, widget: string}
+      - {label: Title, name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
       - {label: Description, name: description, widget: object, fields: [
           {label: First Image, name: first_image, widget: image},
