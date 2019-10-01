@@ -17,4 +17,4 @@ CMS.registerPreviewTemplate('about', AboutPagePreview)
 CMS.registerPreviewTemplate('products', ProductPagePreview)
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
 
-CMS.registerWidget('hotelsSelect', CustomSelect)
+CMS.registerWidget('hotelSelect', CustomSelect)

@@ -21,11 +21,10 @@ collections:
   - name: "rooms"
     label: "Rooms"
     folder: "src/pages/rooms"
-    create: true
-    filter: {field: "hotel", value: "beke"}
+    create: true 
     fields: 
       - {label: Template Key, name: templateKey, widget: hidden, default: room-page}
-      - {label: Hotel, name: hotel, widget: select, options: [beke, wayak, casa-maya] }
+      - {label: Hotel, name: hotel, widget: select, options: [beke, wayak, casaMaya] }
       - {label: Title, name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
       - {label: Description, name: description, widget: object, fields: [
@@ -54,7 +53,6 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-      - {label: hotels, name: hotels, widget: hotelsSelect}
 
   - name: "pages"
     label: "Pages"
@@ -64,14 +62,16 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {
+              label: Header,
+              name: header,
+              widget: object,
+              fields: [
+                {label: Slides, name: slides, widget: list, fields: [{label: image, name: image, widget: image}, {label: Icon, name: icon, widget: image}, {label: Caption, name: caption, widget: text}]},
+                {label: Introduction, name: introduction, widget: object, fields: [{label: image, name: image, widget: image}, {label: Icon, name: icon, widget: image}, {label: Introduction caption, name: introCaption, widget: text}]}
+              ] 
+            }
           - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
       - file: "src/pages/products/index.md"
         label: "Hotels Page"
         name: "hotels"
@@ -86,3 +86,4 @@ collections:
           - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
           - {label: Full_image, name: full_image, widget: image}
           - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
+          

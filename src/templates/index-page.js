@@ -8,13 +8,6 @@ import "../components/main.scss"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
 export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
   heroImage,
   logoWayak,
   descriptionImage,
@@ -71,7 +64,7 @@ export const IndexPageTemplate = ({
       <span style={{width: '200px', height: '3px', display: 'block', backgroundColor: '#004660', margin: '0 auto'}}></span>
     </div>
   
-    <MDBRow className="no-gutters px-3 index-item">
+    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6">
         <Img fluid={wayakHotel.childImageSharp.fluid} />
       </MDBCol>
@@ -86,7 +79,7 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters px-3 index-item">
+    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6" middle className='align-items-center only-on-large'>
         <div className='w-75 float-right mr-lg-5 text-center'>
           <h2 className='text-center'>HOTEL BÉKE MAHAHUAL</h2> 
@@ -111,7 +104,7 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters px-3 index-item">
+    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6">
         <Img fluid={casaMaya.childImageSharp.fluid} />
       </MDBCol>
@@ -126,7 +119,7 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters px-3 index-item">
+    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6" middle className='align-items-center'>
         <div className='w-75 float-right mr-lg-5 text-center'>
           <p style={{fontSize: '30px'}} className='float-lg-right text-center'>
@@ -139,7 +132,7 @@ export const IndexPageTemplate = ({
         <Img fluid={bacalar.childImageSharp.fluid} />
       </MDBCol>
     </MDBRow>
-    <MDBRow className="no-gutters px-3 index-item">
+    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6">
         <iframe src="https://www.google.com/maps/d/embed?mid=1S1U0PHEcD-T41WIKnLXQBS-0j5n_c5-t" width="100%" height="384.54"></iframe>
       </MDBCol>
@@ -182,13 +175,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
         heroImage={heroImage}
         logoWayak={logoWayak}
         descriptionImage={descImage}
@@ -273,34 +259,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }
