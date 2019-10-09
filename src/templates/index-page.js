@@ -4,6 +4,7 @@ import { Link, graphql, } from 'gatsby'
 import Img from "gatsby-image"
 
 import Layout from '../components/Layout'
+import HotelsLoop from '../components/HotelsLoop'
 import "../components/main.scss"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
@@ -12,10 +13,8 @@ export const IndexPageTemplate = ({
   logoWayak,
   descriptionImage,
   logoBeke,
-  wayakHotel,
-  bekeHotel,
-  casaMaya,
   bacalar,
+  hotels,
 }) => (
   <div>
     <div 
@@ -64,61 +63,8 @@ export const IndexPageTemplate = ({
       <span style={{width: '200px', height: '3px', display: 'block', backgroundColor: '#004660', margin: '0 auto'}}></span>
     </div>
   
-    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
-      <MDBCol lg="6">
-        <Img fluid={wayakHotel.childImageSharp.fluid} />
-      </MDBCol>
-      <MDBCol lg="6" middle className='align-items-center'>
-        <div className='w-75 ml-lg-5 text-center'>
-          <h2 className='text-center'>HOTEL WAYAK BACALAR</h2>
-          <p className='text-justify'>
-            Hotel Wayak Bacalar-Todo Incluido, al estar rodeado de naturaleza crea un entorno de exclusividad lejos de todo lo cotidiano. Podrás disfrutar de la increíble laguna de Bacalar a unos cuantos pasos de tu habitación. 
-            Además, por nuestra ubicación y su arena blanca, no podrás diferenciarla del mar. Por la noche disfrutarás del cielo estrellado como nunca antes lo habías visto. Tu habitación, nuestro personal y el ambiente te harán experimentar las mejores vacaciones con pareja, familia o amigos.
-          </p>
-          <MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
-        </div>
-      </MDBCol>
-    </MDBRow>
-    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
-      <MDBCol lg="6" middle className='align-items-center only-on-large'>
-        <div className='w-75 float-right mr-lg-5 text-center'>
-          <h2 className='text-center'>HOTEL BÉKE MAHAHUAL</h2> 
-          <p className='text-justify'>
-            El ambiente y ubicación de Hotel Béke hará que experimentes una sensación de paz y relajación total. Por la mañana disfrutarás de una increíble vista del amanecer detrás del mar caribe y por la tarde el atardecer de lado del manglar. Todo esto, 
-            complementado con habitaciones cómodamente equipadas para hacer de tu experiencia con nosotros algo inolvidable.
-          </p>
-          <MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
-        </div>
-      </MDBCol>
-      <MDBCol lg="6">
-        <Img fluid={bekeHotel.childImageSharp.fluid} />
-      </MDBCol>
-      <MDBCol lg="6" middle className='align-items-center only-on-medium-and-down'>
-        <div className='w-75 float-right mr-lg-5 text-center'>
-          <h2 className='text-center'>HOTEL BÉKE MAHAHUAL</h2> 
-          <p className='text-justify'>
-            El ambiente y ubicación de Hotel Béke hará que experimentes una sensación de paz y relajación total. Por la mañana disfrutarás de una increíble vista del amanecer detrás del mar caribe y por la tarde el atardecer de lado del manglar. Todo esto, 
-            complementado con habitaciones cómodamente equipadas para hacer de tu experiencia con nosotros algo inolvidable.
-          </p>
-          <MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
-        </div>
-      </MDBCol>
-    </MDBRow>
-    <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
-      <MDBCol lg="6">
-        <Img fluid={casaMaya.childImageSharp.fluid} />
-      </MDBCol>
-      <MDBCol lg="6" middle className='align-items-center'>
-        <div className='w-75 ml-lg-5 text-center'>
-          <h2 className='text-center'>HOTEL CASA MAYA HOLBOX</h2>
-          <p className='text-justify'>
-            Hotel rústico a la orilla del mar con una impresionante playa que te hará sentir en un entorno 100% caribeño. En la mañana podrás relajarte, disfrutar un rico cóctel y nadar en el mar cristalino.
-            Por la noche podrás recorrer las peculiares calles y gastronomía de los habitantes quienes te harán sentir como un local.
-          </p>
-          <MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
-        </div>
-      </MDBCol>
-    </MDBRow>
+    <HotelsLoop />
+
     <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6" middle className='align-items-center'>
         <div className='w-75 float-right mr-lg-5 text-center'>
@@ -167,9 +113,6 @@ const IndexPage = ({ data }) => {
   const logoWayak = data.logoWayak
   const descImage = data.descImage
   const beke = data.beke
-  const wayakHotel = data.wayakHotel
-  const bekeHotel = data.bekeHotel
-  const casaMaya = data.casaMaya
   const bacalar = data.bacalar
   console.log(data)
   return (
@@ -179,9 +122,6 @@ const IndexPage = ({ data }) => {
         logoWayak={logoWayak}
         descriptionImage={descImage}
         logoBeke={beke}
-        wayakHotel={wayakHotel}
-        bekeHotel={bekeHotel}
-        casaMaya={casaMaya}
         bacalar={bacalar}
       />
     </Layout>
@@ -201,27 +141,6 @@ export default IndexPage
 export const pageQuery = graphql`
   query IndexPageTemplate {
     bacalar: file(relativePath: { eq: "bacalar.jpg" }){
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    casaMaya: file(relativePath: { eq: "casa-maya.jpg" }){
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    bekeHotel: file(relativePath: { eq: "beke-hotel.jpg" }){
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    wayakHotel: file(relativePath: { eq: "wayak-hotel.jpg" }){
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
