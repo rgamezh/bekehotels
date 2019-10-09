@@ -20,6 +20,9 @@ header:
     - caption: ' '
       icon: /img/logo-wayak.png
       image: /img/home.webp
+    - caption: ' '
+      icon: /img/beke.png
+      image: /img/beke-hotel.jpg
 title: Nuestros Hoteles
 ---
 
