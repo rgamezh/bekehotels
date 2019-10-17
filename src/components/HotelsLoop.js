@@ -10,7 +10,7 @@ export class HotelsLoop extends React.Component {
 	render() { 
 		const { data } = this.props
 		const { edges: hotels } = data.allMarkdownRemark
-		var count = 0
+		let count = 0
 
 		return(
 			<div>
@@ -26,7 +26,7 @@ export class HotelsLoop extends React.Component {
 							        <div className={`w-75 text-center ${ !(count%2)? 'float-right mr-lg-5' : 'ml-lg-5' }`}>
 							         	<h2 className='text-center'>{hotel.frontmatter.description_title}</h2>
 								    	<p className='text-justify'>{hotel.frontmatter.description}</p>
-								    	<MDBBtn style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
+								    	<MDBBtn color="primary" style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
 							        </div>
 						      	</MDBCol>
 						    </MDBRow>

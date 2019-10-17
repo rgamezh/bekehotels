@@ -6,22 +6,56 @@ import Img from "gatsby-image"
 import Layout from '../components/Layout'
 import HotelsLoop from '../components/HotelsLoop'
 import "../components/main.scss"
-import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView } from "mdbreact";
 
 export const IndexPageTemplate = ({
-  heroImage,
-  logoWayak,
-  descriptionImage,
-  logoBeke,
+  frontmatter,
+  slides,
   bacalar,
-  hotels,
+  introduction
 }) => (
-  <div>
+  <>
+    <MDBCarousel
+      activeItem={1}
+      length={slides.length}
+      showControls={true}
+      showIndicators={true}
+      style={{height: '100vh'}}
+      className="z-depth-1"
+    >
+      <MDBCarouselInner>
+        {slides&&
+          slides.map((slide) => (
+            <MDBCarouselItem itemId={slides.indexOf(slide) + 1} key={slides.indexOf(slide)}>
+              <MDBView>
+                <div 
+                  style={{
+                    height: '100vh',
+                    backgroundImage: `url(${
+                      !!slide.image.childImageSharp ? slide.image.childImageSharp.fluid.src : slide.image
+                    })`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <MDBContainer className='h-100'>
+                    <div className="d-flex h-100 justify-content-center align-items-center flex-column">
+                      <Img style={{maxWidth: '254px', width: '100%', marginBottom: '30px'}} fluid={slide.icon.childImageSharp.fluid} />
+                      <MDBBtn outline color='white'>Ver Ahora</MDBBtn>
+                    </div>
+                  </MDBContainer>
+                </div>
+              </MDBView>
+            </MDBCarouselItem>
+          ))
+        }
+      </MDBCarouselInner>
+    </MDBCarousel>
     <div 
       style={{
         height: '100vh',
         backgroundImage: `url(${
-          !!heroImage.childImageSharp ? heroImage.childImageSharp.fluid.src : heroImage
+          !!introduction.image.childImageSharp ? introduction.image.childImageSharp.fluid.src : introduction.image
         })`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -29,37 +63,15 @@ export const IndexPageTemplate = ({
     >
       <MDBContainer className='h-100'>
         <div className="d-flex h-100 justify-content-center align-items-center flex-column">
-          <Img style={{maxWidth: '254px', width: '100%', marginBottom: '30px'}} fluid={logoWayak.childImageSharp.fluid} />
-          <MDBBtn outline color='white'>Ver Ahora</MDBBtn>
-        </div>
-      </MDBContainer>
-    </div>
-    <div 
-      style={{
-        height: '100vh',
-        backgroundImage: `url(${
-          !!descriptionImage.childImageSharp ? descriptionImage.childImageSharp.fluid.src : descriptionImage
-        })`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
-      <MDBContainer className='h-100'>
-        <div className="d-flex h-100 justify-content-center align-items-center flex-column">
-          <Img style={{width: '76px', marginBottom: '27px'}} fluid={logoBeke.childImageSharp.fluid} />
-          <p className='text-center white-text'>
-            Grupo béke hotels es una excelente opción para pasar unas vacaciones en familia en el mejor destino turístico de México,
-            ya que ofrece todas las facilidades para hacer de tu estancia una experiencia inolvidable: cómodas habitaciones, espectacular restaurante, club de playa y una excepcional ubicación.
-          </p>
-          <p className='text-center white-text'>
-            Béke Hotels Group is an excellent option to spend a family holiday in the best tourist destination in Mexico, as it offers all the facilities to make your stay an unforgettable experience:
-            comfortable rooms, spectacular, restaurant, beach club and an exceptional location .
-          </p>
+          <Img style={{width: '76px', marginBottom: '27px'}} fluid={introduction.icon.childImageSharp.fluid} />
+          {introduction.introCaption.split('\n').map((item, key) => {
+            return <p className={'text-center white-text'} key={key}>{item}</p>
+          })}
         </div>
       </MDBContainer>
     </div>
     <div style={{margin: '50px 0'}}>
-      <h1 className="text-center">Nuestros Hoteles</h1>
+      <h1 className="text-center">{frontmatter.title}</h1>
       <span style={{width: '200px', height: '3px', display: 'block', backgroundColor: '#004660', margin: '0 auto'}}></span>
     </div>
   
@@ -92,7 +104,7 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-  </div>
+  </>
 )
 
 IndexPageTemplate.propTypes = {
@@ -109,20 +121,16 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  const heroImage = data.heroImage
-  const logoWayak = data.logoWayak
-  const descImage = data.descImage
-  const beke = data.beke
+  const { slides } = frontmatter.header
+  const { introduction } = frontmatter.header
   const bacalar = data.bacalar
-  console.log(data)
   return (
     <Layout>
       <IndexPageTemplate
-        heroImage={heroImage}
-        logoWayak={logoWayak}
-        descriptionImage={descImage}
-        logoBeke={beke}
+        frontmatter={frontmatter}
+        slides={slides}
         bacalar={bacalar}
+        introduction={introduction}
       />
     </Layout>
   )
@@ -161,23 +169,45 @@ export const pageQuery = graphql`
         }
       }
     }
-    heroImage: file(relativePath: { eq: "home.png" }){
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    logoWayak: file(relativePath: { eq: "logo-wayak.png" }){
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
+        header {
+          slides {
+            image {
+              childImageSharp {
+                fluid(maxWidth:1920, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            icon {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            caption
+          }
+          introduction {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1920, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            icon{
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            introCaption 
+          }
+        }
       }
     }
   }

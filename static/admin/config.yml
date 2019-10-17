@@ -12,12 +12,15 @@ collections:
     create: true
     fields:
       - {label: Template Key, name: templateKey, widget: hidden, default: hotel-page}
-      - {label: Title, name: title, widget: string}
+      - {label: Title, name: title, widget: text}
       - {label: Image, name: image, widget: image}
-      - {label: Tagline, name: tagline, widget: text}
-      - {label: Description Title, name: description_title, widget: text}
+      - {label: Brand, name: brand, widget: image}
       - {label: Description, name: description, widget: text}
-      - {label: Optional Content, name: content, widget: markdown, required: true}
+      - {label: Destination picture, name: destination_img, widget: image}
+      - {label: Destination name, name: destination_name, widget: text}
+      - {label: Destination description, name: destination_description, widget: text}
+      - {label: Instagram posts, name: instagram_posts, widget: list, field: {label: Instagram Images, name: instagram_images, widget: object, fields: [{label: Image, name: image, widget: Image}, {label: Link, name: link, widget: string}]}}
+      - {label: Optional Content, name: content, widget: markdown, required: false}
   - name: "rooms"
     label: "Rooms"
     folder: "src/pages/rooms"
@@ -31,9 +34,9 @@ collections:
           {label: First Image, name: first_image, widget: image},
           {label: Tagline, name: tagline, widget: text},
           {label: Description, name: description, widget: text},
-          {label: second Image, name: second_image, widget: image},
-          {label: Second tagline, name: second_tagline, widget: text},
-          {label: Second Description, name: second_description, widget: text}
+          {label: second Image, name: second_image, widget: image, required: false},
+          {label: Second tagline, name: second_tagline, widget: text, required: false},
+          {label: Second Description, name: second_description, widget: text, required: false}
         ]}
       - {label: Amenities, name: amenities, widget: markdown}
       - {label: Footer Image, name: footer_image, widget: image}
@@ -67,11 +70,12 @@ collections:
               name: header,
               widget: object,
               fields: [
-                {label: Slides, name: slides, widget: list, fields: [{label: image, name: image, widget: image}, {label: Icon, name: icon, widget: image}, {label: Caption, name: caption, widget: text}]},
-                {label: Introduction, name: introduction, widget: object, fields: [{label: image, name: image, widget: image}, {label: Icon, name: icon, widget: image}, {label: Introduction caption, name: introCaption, widget: text}]}
+                {label: Slides, name: slides, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Image alt, name: img_alt, widget: string}, {label: Icon, name: icon, widget: image, required: false}, {label: Icon alt, name: icon_alt, widget: string, required: false}, {label: Caption, name: caption, widget: text, required: false}]},
+                {label: Introduction, name: introduction, widget: object, fields: [{label: image, name: image, widget: image}, {label: Icon, name: icon, widget: image, required: false}, {label: Introduction caption, name: introCaption, widget: text, required: false}]}
               ] 
             }
           - {label: Title, name: title, widget: string}
+          - {label: Newsletter, name: newsletter, widget: object, fields: [{label: Sentence, name: sentence, widget: string}, {label: Newsletter image, name: image, widget: image}]}
       - file: "src/pages/products/index.md"
         label: "Hotels Page"
         name: "hotels"

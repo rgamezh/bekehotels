@@ -14,10 +14,16 @@
 	
 }
 
+$primary-color: #004660;
+
 html body {
 	font-display: fallback
 }
 
 .only-on-medium-and-down {
 	display: none
+}
+
+.loop-btn{
+	background-color: $primary-color
 }
