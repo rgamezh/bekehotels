@@ -19,10 +19,12 @@ header:
   slides:
     - caption: ' '
       icon: /img/logo-wayak.png
+      icon_alt: Wayak
       image: /img/home.webp
       img_alt: Bacalar
     - caption: ' '
       icon: /img/logotipo-beke-1-.webp
+      icon_alt: Beke
       image: /img/foto-slider.webp
       img_alt: Beke Hotel
 title: Nuestros Hoteles
