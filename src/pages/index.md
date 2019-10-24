@@ -20,9 +20,14 @@ header:
     - caption: ' '
       icon: /img/logo-wayak.png
       image: /img/home.webp
+      img_alt: Bacalar
     - caption: ' '
-      icon: /img/beke.png
-      image: /img/beke-hotel.jpg
+      icon: /img/logotipo-beke-1-.webp
+      image: /img/foto-slider.webp
+      img_alt: Beke Hotel
 title: Nuestros Hoteles
+newsletter:
+  image: /img/bacalar.jpg
+  sentence: Regístrate y te enviaremos las mejores ofertas para ti
 ---
 
