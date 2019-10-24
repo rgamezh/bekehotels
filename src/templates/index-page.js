@@ -4,7 +4,7 @@ import { Link, graphql, } from 'gatsby'
 import Img from "gatsby-image"
 
 import Layout from '../components/Layout'
-import HotelsLoop from '../components/HotelsLoop'
+import Loop from '../components/Loop'
 import "../components/main.scss"
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView } from "mdbreact";
 
@@ -12,9 +12,10 @@ export const IndexPageTemplate = ({
   frontmatter,
   slides,
   bacalar,
-  introduction
+  introduction,
+  hotels,
 }) => (
-  <>
+  <React.Fragment>
     <MDBCarousel
       activeItem={1}
       length={slides.length}
@@ -75,7 +76,7 @@ export const IndexPageTemplate = ({
       <span style={{width: '200px', height: '3px', display: 'block', backgroundColor: '#004660', margin: '0 auto'}}></span>
     </div>
   
-    <HotelsLoop />
+    <Loop loop={hotels}/>
 
     <MDBRow className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
       <MDBCol lg="6" middle className='align-items-center'>
@@ -104,7 +105,7 @@ export const IndexPageTemplate = ({
         </div>
       </MDBCol>
     </MDBRow>
-  </>
+  </React.Fragment>
 )
 
 IndexPageTemplate.propTypes = {
@@ -123,6 +124,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const { slides } = frontmatter.header
   const { introduction } = frontmatter.header
+  const hotels = data.hotels
   const bacalar = data.bacalar
   return (
     <Layout>
@@ -131,6 +133,7 @@ const IndexPage = ({ data }) => {
         slides={slides}
         bacalar={bacalar}
         introduction={introduction}
+        hotels={hotels}
       />
     </Layout>
   )
@@ -166,6 +169,24 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    hotels: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "hotel-page"}}}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            description
+            image {
+              childImageSharp {
+                fluid (maxWidth: 960, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }
