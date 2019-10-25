@@ -19,7 +19,7 @@ export default class Loop extends React.Component {
 						return (
 							<MDBRow key={item.id} className="no-gutters px-3 px-sm-3 px-lg-0 index-item">
 					     		<MDBCol lg="6" className={ !(count%2)? 'order-lg-2' : '' }>
-						        	<Img fluid={item.frontmatter.image.childImageSharp.fluid} />
+						        	<Img style={{height: '450px'}} fluid={item.frontmatter.image.childImageSharp.fluid} />
 						      	</MDBCol>
 						      	<MDBCol lg="6" middle className="align-items-center">
 							        <div className={`w-75 text-center ${ !(count%2)? 'float-right mr-lg-5' : 'ml-lg-5' }`}>

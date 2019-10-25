@@ -31,11 +31,8 @@ collections:
       - {label: Title, name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
       - {label: Description, name: description, widget: object, fields: [
-          {label: First Image, name: first_image, widget: image},
-          {label: Tagline, name: tagline, widget: text},
+          {label: First Image, name: image, widget: image},
           {label: Description, name: description, widget: text},
-          {label: second Image, name: second_image, widget: image, required: false},
-          {label: Second tagline, name: second_tagline, widget: text, required: false},
           {label: Second Description, name: second_description, widget: text, required: false}
         ]}
       - {label: Amenities, name: amenities, widget: markdown}
