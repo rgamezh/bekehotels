@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: beke
+hotel: HOTEL BÉKE MAHAHUAL
 title: Suite Familiar
 image: /img/dsc04830-suite-familiar.webp
 description_image: /img/bungalo-con-vista-al-mar.webp
