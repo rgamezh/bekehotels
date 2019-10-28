@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: beke
+hotel: HOTEL BÉKE MAHAHUAL
 title: Suite Deluxe
 image: /img/suite-deluxe.webp
 description_image: /img/bungalo-con-vista-al-mar.webp
