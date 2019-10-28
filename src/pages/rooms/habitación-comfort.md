@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: beke
+hotel: HOTEL BÉKE MAHAHUAL
 title: Habitación Comfort
 image: /img/dsc04891-habitación-comfort.webp
 description_image: /img/bungalo-con-vista-al-mar.webp
