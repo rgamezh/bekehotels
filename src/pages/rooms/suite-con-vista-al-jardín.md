@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: wayak
+hotel: Hotel Wayak Bacalar
 title: Suite con vista al jardín
 image: /img/vista-al-jardin-2.webp
 description_image: /img/vista-al-jardin-2.webp
