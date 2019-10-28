@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: wayak
+hotel: Hotel Wayak Bacalar
 title: Habitación panorámica
 image: /img/dsc04519-habitación-panoramica.webp
 description_image: /img/dsc04519-habitación-panoramica.webp
