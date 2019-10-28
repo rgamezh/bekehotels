@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: wayak
+hotel: Hotel Wayak Bacalar
 title: Habitación con vista al jardín
 image: /img/dsc04265-habitación-vista-la-jardín.webp
 description_image: /img/dsc04265-habitación-vista-la-jardín.webp
