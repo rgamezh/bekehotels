@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: casaMaya
+hotel: HOTEL CASA MAYA HOLBOX
 title: Bungalow con vista al mar
 image: /img/bungalo-con-vista-al-mar.webp
 description_image: /img/bungalo-con-vista-al-mar.webp
