@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: beke
+hotel: HOTEL BÉKE MAHAHUAL
 title: Habitación Superior
 image: /img/dsc08358-habitación-superior.webp
 description_image: /img/bungalo-con-vista-al-mar.webp
