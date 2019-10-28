@@ -14,12 +14,13 @@ export const HotelPageTemplate = ({
 	destination_name,
 	destination_description,
 }) => (
-	<div>
+	<React.Fragment>
 		<div 
 			className="h-100 w-100"
 		>
+
 		</div>
-	</div>
+	</React.Fragment>
 )
 
 HotelPageTemplate.propTypes = {
