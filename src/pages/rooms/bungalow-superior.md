@@ -1,6 +1,6 @@
 ---
 templateKey: room-page
-hotel: casaMaya
+hotel: HOTEL CASA MAYA HOLBOX
 title: Bungalow superior
 image: /img/bungalo-superior.webp
 description_image: /img/bungalo-con-vista-al-mar.webp
