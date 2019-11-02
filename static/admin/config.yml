@@ -27,7 +27,7 @@ collections:
     create: true 
     fields: 
       - {label: Template Key, name: templateKey, widget: hidden, default: room-page}
-      - {label: Hotel, name: hotel, widget: relation, collection: hotels, valueField: title, searchFields: [ti+]}
+      - {label: Hotel, name: hotel, widget: relation, collection: hotels, valueField: title, searchFields: [title]}
       - {label: Title, name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
       - {label: Description Image, name: description_image, widget: image}

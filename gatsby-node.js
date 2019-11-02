@@ -18,6 +18,8 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               tags
               templateKey
+              hotel
+              title
             }
           }
         }
@@ -33,17 +35,46 @@ exports.createPages = ({ actions, graphql }) => {
 
     posts.forEach(edge => {
       const id = edge.node.id
-      createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        // additional data can be passed via context
-        context: {
-          id,
-        },
-      })
+      const hotel = edge.node.frontmatter.hotel 
+      console.log(hotel)
+      if (edge.node.frontmatter.templateKey === 'room-page') {
+        createPage({
+          path: `/hotels/${_.deburr(_.kebabCase(hotel) + edge.node.fields.slug)}`,
+          component: path.resolve(
+            `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          ),
+          // additional data can be passed via context
+          context: {
+            id,
+            hotel,
+          },
+        })  
+      } else if (edge.node.frontmatter.templateKey === 'hotel-page') {
+        createPage({
+          path: _.deburr(edge.node.fields.slug),
+          component: path.resolve(
+            `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          ),
+          
+          context: {
+            id,
+            hotel: edge.node.frontmatter.title,
+          }      
+        })
+      } else {
+        createPage({
+          path: _.deburr(edge.node.fields.slug),
+          tags: edge.node.frontmatter.tags,
+          component: path.resolve(
+            `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          ),
+          // additional data can be passed via context
+          context: {
+            id,
+            hotel,
+          },
+        })  
+      }  
     })
 
     // Tag pages:

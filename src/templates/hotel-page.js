@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
+import Loop from '../components/Loop' 
 import "../components/main.scss"
 
 export const HotelPageTemplate = ({
@@ -13,13 +14,10 @@ export const HotelPageTemplate = ({
 	destination_img,
 	destination_name,
 	destination_description,
+	rooms
 }) => (
 	<React.Fragment>
-		<div 
-			className="h-100 w-100"
-		>
-
-		</div>
+		<Loop loop={rooms} />
 	</React.Fragment>
 )
 
@@ -34,8 +32,9 @@ HotelPageTemplate.propTypes = {
 }
 
 const HotelPage = ({data}) => {
+	const rooms = data.rooms
 	const { frontmatter } = data.markdownRemark
-	console.log(data)
+	console.log(rooms)
 	return (
 		<Layout>
 			<HotelPageTemplate 
@@ -46,6 +45,7 @@ const HotelPage = ({data}) => {
 				destination_img={ frontmatter.destination_img }
 				destination_name={ frontmatter.destination_name }
 				destination_description={ frontmatter.destination_description }
+				rooms={rooms}
 			/>
 		</Layout>
 	)
@@ -62,7 +62,25 @@ HotelPage.propTypes = {
 export default HotelPage
 
 export const HotelPageQuery = graphql`
-	query HotelPage($id: String!) {
+	query HotelPage($id: String!, $hotel: String!) {
+		rooms: allMarkdownRemark(filter: {frontmatter: {hotel: {eq: $hotel}}}){
+			edges {
+				node {
+					id
+					frontmatter {
+						title
+						description
+						image {
+							childImageSharp {
+								fluid(maxWidth: 960, quality: 100){
+									...GatsbyImageSharpFluid
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 		markdownRemark(id: {eq: $id }) {
 			id
 			frontmatter {
