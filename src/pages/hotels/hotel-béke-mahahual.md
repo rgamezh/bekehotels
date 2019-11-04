@@ -13,9 +13,7 @@ destination_img: /img/mahahual.webp
 destination_name: Mahahual
 destination_description: >-
   Es un pequeño pueblo de pescadores en el que encuentras el único muelle de
-  cruceros del sur del
-
-  estado. 
+  cruceros del sur del estado. 
 
   Sumérgete en las aguas azul turqueza, bucea y descubre las bellezas
   inconcebibles que guardan sus costas o adéntrate en altamar para pescar marlin
