@@ -27,3 +27,15 @@ html body {
 .loop-btn{
 	background-color: $primary-color
 }
+
+.cover-image{
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+
+.brand-image{
+	width: 100%;
+	max-width: 500px;
+	margin-bottom: 100px;
+}

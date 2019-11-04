@@ -30,13 +30,11 @@ export const IndexPageTemplate = ({
             <MDBCarouselItem itemId={slides.indexOf(slide) + 1} key={slides.indexOf(slide)}>
               <MDBView>
                 <div 
+                  className="cover-image"
                   style={{
-                    height: '100vh',
                     backgroundImage: `url(${
                       !!slide.image.childImageSharp ? slide.image.childImageSharp.fluid.src : slide.image
                     })`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
                   }}
                 >
                   <MDBContainer className='h-100'>
@@ -53,13 +51,12 @@ export const IndexPageTemplate = ({
       </MDBCarouselInner>
     </MDBCarousel>
     <div 
+      className="cover-image"
       style={{
-        height: '100vh',
         backgroundImage: `url(${
           !!introduction.image.childImageSharp ? introduction.image.childImageSharp.fluid.src : introduction.image
         })`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundAttachment: 'fixed',
       }}
     >
       <MDBContainer className='h-100'>
