@@ -16,7 +16,8 @@ export const HotelPageTemplate = ({
 	destination_img,
 	destination_name,
 	destination_description,
-	rooms
+	rooms,
+	hotelSlug,
 }) => (
 	<React.Fragment>
 		<div 
@@ -31,12 +32,12 @@ export const HotelPageTemplate = ({
 		</div>
 		<MDBContainer className="d-flex cover-image flex-column justify-content-center align-items-center flex-column">
 			<Img className="brand-image" fluid={brand.childImageSharp.fluid} />
+			<h1 className="hotel-title">{title}</h1>
 			<p className="text-center">
 				{description}
-				{console.log('count: ' + rooms.edges.length)}
 			</p>
 		</MDBContainer>
-		<Loop loop={rooms} />
+		<Loop loop={rooms} hotelSlug={hotelSlug} />
 		<MDBRow className="no-gutters">
 			<MDBCol lg="6" className={ rooms.edges.length%2? 'order-lg-2' : ''}>
 				<Img fluid={destination_img.childImageSharp.fluid} />
@@ -68,7 +69,7 @@ HotelPageTemplate.propTypes = {
 const HotelPage = ({data}) => {
 	const rooms = data.rooms
 	const { frontmatter } = data.markdownRemark
-	console.log(rooms)
+	const hotelSlug = data.markdownRemark.fields.slug
 	return (
 		<Layout>
 			<HotelPageTemplate 
@@ -80,6 +81,7 @@ const HotelPage = ({data}) => {
 				destination_name={ frontmatter.destination_name }
 				destination_description={ frontmatter.destination_description }
 				rooms={rooms}
+				hotelSlug={hotelSlug}
 			/>
 		</Layout>
 	)
@@ -101,6 +103,9 @@ export const HotelPageQuery = graphql`
 			edges {
 				node {
 					id
+					fields {
+						slug
+					}
 					frontmatter {
 						title
 						description
@@ -117,6 +122,9 @@ export const HotelPageQuery = graphql`
 		}
 		markdownRemark(id: {eq: $id }) {
 			id
+			fields{
+				slug
+			}
 			frontmatter {
 				title
 				image {

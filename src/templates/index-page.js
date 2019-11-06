@@ -123,6 +123,7 @@ const IndexPage = ({ data }) => {
   const { introduction } = frontmatter.header
   const hotels = data.hotels
   const bacalar = data.bacalar
+  console.log(hotels)
   return (
     <Layout>
       <IndexPageTemplate
@@ -173,6 +174,9 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          fields{
+            slug
+          }
           frontmatter {
             title
             description

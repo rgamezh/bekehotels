@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { Link, navigate, } from 'gatsby'
 import Img from 'gatsby-image'
+import deburr from 'lodash/deburr'
 
 import { MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 
@@ -10,6 +11,7 @@ export default class Loop extends React.Component {
 	render() { 
 		const { loop } = this.props
 		const { edges: items } = loop
+		const hotelSlug = this.props.hotelSlug
 		let count = 0
 		return(
 			<React.Fragment>
@@ -25,7 +27,19 @@ export default class Loop extends React.Component {
 							        <div className={`w-75 text-center ${ !(count%2)? 'float-right mr-lg-5' : 'ml-lg-5' }`}>
 							         	<h2 className='text-center'>{item.frontmatter.title}</h2>
 								    	<p className='text-justify'>{item.frontmatter.description}</p>
-								    	<MDBBtn color="primary" style={{backgroundColor: '#004660 !important'}}>Ver más</MDBBtn>
+								    	<MDBBtn 
+								    		onClick={e => {
+								    			e.preventDefault()
+								    			hotelSlug?
+								    				navigate(deburr(`/${hotelSlug}/${item.fields.slug}`))
+								    			: 
+								    				navigate(deburr(item.fields.slug))
+								    		}} 
+								    		color="primary" 
+								    		style={{backgroundColor: '#004660 !important'}}
+								    	>
+								    		Ver más
+								    	</MDBBtn>
 							        </div>
 						      	</MDBCol>
 						    </MDBRow>

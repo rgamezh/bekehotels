@@ -12,9 +12,13 @@ export const RoomPageTemplate = ({}) => (
 
 const RoomPage = ({}) => {
 	return (
-		<RoomPageTemplate />
+		<Layout>
+			<RoomPageTemplate />
+		</Layout>
 	)
 }
 
 export default RoomPage
+
+
 

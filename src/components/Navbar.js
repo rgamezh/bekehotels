@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate, } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 import {
@@ -52,9 +52,30 @@ const Navbar = class extends React.Component {
                     <span className="mr-2">Destinos</span>
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
-                    <MDBDropdownItem href="#!">Wayak Bakalar - Todo Incluido</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Casa Maya Holbox</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Beke Mahahual</MDBDropdownItem>
+                    <MDBDropdownItem 
+                      onClick={e => {
+                        e.preventDefault()
+                        navigate("/hotels/hotel-wayak-bacalar/")
+                      }}
+                    >
+                      Wayak Bakalar - Todo Incluido
+                    </MDBDropdownItem>
+                    <MDBDropdownItem
+                      onClick={e => {
+                        e.preventDefault()
+                        navigate("/hotels/hotel-casa-maya-holbox/")
+                      }}
+                    >
+                      Casa Maya Holbox
+                    </MDBDropdownItem>
+                    <MDBDropdownItem
+                      onClick={e => {
+                        e.preventDefault()
+                        navigate("/hotels/hotel-beke-mahahual/")
+                      }}
+                    >
+                      Beke Mahahual
+                    </MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
               </MDBNavItem>
