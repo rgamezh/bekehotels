@@ -3,7 +3,6 @@ templateKey: room-page
 hotel: HOTEL BÉKE MAHAHUAL
 title: Suite Deluxe
 image: /img/suite-deluxe.webp
-description_image: /img/bungalo-con-vista-al-mar.webp
 description: >-
   Habitación familiar en Bacalar. Estas habitaciones cuentan con dos camas queen
   size, televisión, baño completo, cocineta, refrigerador, microondas y lo mejor
@@ -15,21 +14,5 @@ second_description: >-
   noche, nuestro personal y el hotel te harán experimentar las mejores
   vacaciones en pareja o en familia.
 
-   
-amenities: |-
-  * 2 camas queen size
-  * Planta baja o primer piso
-  * Cocineta (Refrigerador-Horno microondas)
-  * Hamacas y terraza
-  * WIFI (verificar disponibilidad)
-  * Tv por cable
-  * Agua caliente
-  * Tv por cable
-  * Aire acondicionado
-  * Ventilador
-  * Toalla facial
-  * Toalla manos
-  * Pet friendly
-footer_image: /img/mahahual.webp
 ---
 
