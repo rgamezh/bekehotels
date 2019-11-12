@@ -123,7 +123,6 @@ const IndexPage = ({ data }) => {
   const { introduction } = frontmatter.header
   const hotels = data.hotels
   const bacalar = data.bacalar
-  console.log(hotels)
   return (
     <Layout>
       <IndexPageTemplate
