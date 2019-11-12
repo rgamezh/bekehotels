@@ -30,11 +30,11 @@ collections:
       - {label: Hotel, name: hotel, widget: relation, collection: hotels, valueField: title, searchFields: [title]}
       - {label: Title, name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
-      - {label: Description gallery, name: description_gallery, widget: list, fields: [{label: Room Image, name: room_image, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}]}
+      - {label: Description gallery, name: description_gallery, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}
       - {label: Description, name: description, widget: text}
       - {label: Second Description, name: second_description, widget: text, required: false}
-      - {label: Amenities, name: amenities, widget: list, fields: [{label: Amenity, name: amenity, widget: object, fields: [{label: Nombre, name: name, widget: string}, {label: Amenity image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}]}
-      - {label: Footer gallery, name: footer_gallery, widget: list, fields: [{label: Footer Image, name: footer_image, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}]}
+      - {label: Amenities, name: amenities, widget: list, fields: [{label: Nombre, name: name, widget: string}, {label: Amenity image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}
+      - {label: Footer gallery, name: footer_gallery, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}
 
   - name: "blog"
     label: "Blog"

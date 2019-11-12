@@ -119,7 +119,7 @@ export const HotelPageQuery = graphql`
 					}
 				}
 			}
-		}
+		} 
 		markdownRemark(id: {eq: $id }) {
 			id
 			fields{
