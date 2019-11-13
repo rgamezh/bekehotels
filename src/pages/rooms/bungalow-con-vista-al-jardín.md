@@ -16,5 +16,12 @@ second_description: >-
   de tu habitación, disfrutarás del cielo increíblemente estrellado por la
   noche, nuestro personal y el hotel te harán experimentar las mejores
   vacaciones en pareja o en familia.
+amenities:
+  - alt: Cama matrimonial
+    amenity_image: /img/cama.png
+    name: Cama matrimonial
+footerGallery:
+  - alt: Holbox
+    image: /img/casa-maya.jpg
 ---
 
