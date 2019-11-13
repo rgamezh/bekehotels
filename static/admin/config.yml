@@ -30,12 +30,12 @@ collections:
       - {label: Hotel, name: hotel, widget: relation, collection: hotels, valueField: title, searchFields: [title]}
       - {label: Title, name: title, widget: string}
       - {label: Main Image, name: image, widget: image}
-      - {label: Description gallery, name: descriptionGallery, widget: list, fields: [{label: Image, name: descriptionGalleryImage, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}
+      - {label: Room gallery, name: gallery, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Image alt, name: img_alt, widget: string}]}
       - {label: Description, name: description, widget: text}
       - {label: Second Description, name: second_description, widget: text, required: false}
       - {label: Amenities, name: amenities, widget: list, fields: [{label: Nombre, name: name, widget: string}, {label: Amenity image, name: amenity_image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}
       - {label: Footer gallery, name: footerGallery, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Texto Alternativo, name: alt, widget: string}]}
-      - {label: Slides, name: slides, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Image alt, name: img_alt, widget: string}, {label: Icon, name: icon, widget: image, required: false}, {label: Icon alt, name: icon_alt, widget: string, required: false}, {label: Caption, name: caption, widget: text, required: false}]}
+      
   - name: "blog"
     label: "Blog"
     folder: "src/pages/blog"
