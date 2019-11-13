@@ -3,6 +3,9 @@ templateKey: room-page
 hotel: HOTEL CASA MAYA HOLBOX
 title: Bungalow con vista al jardín
 image: /img/bungalow-con-vista-al-jardín-1-.webp
+gallery:
+  - image: /img/casa-maya.jpg
+    img_alt: Casa Maya
 description: >-
   Habitación familiar en Bacalar. Estas habitaciones cuentan con dos camas queen
   size, televisión, baño completo, cocineta, refrigerador, microondas y lo mejor
